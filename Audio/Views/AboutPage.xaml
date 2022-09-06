@@ -24,7 +24,9 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
                     <Button Text="{Binding AudioText}"
-                    Command="{Binding AudioCmd}"/>
+                            TextColor="{Binding AudioTextColor}"
+                            BackgroundColor="White"
+                            Command="{Binding AudioCmd}"/>
                     <!--<Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />-->
                 </ContentView>
             </StackLayout>

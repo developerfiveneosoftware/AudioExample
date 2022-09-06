@@ -54,6 +54,7 @@ namespace Audio.ViewModels
         {
             Title = "About";
             AudioText = "Record";
+            AudioTextColor = Color.Green;
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
             AudioCmd = new Command(async () => await UpdateRecording());
 
@@ -69,7 +70,7 @@ namespace Audio.ViewModels
             {
                 if (!audioRecorderService.IsRecording)
                 {
-                    AudioText = "Record";
+                    AudioText = "Stop";
                     AudioTextColor = Color.Red;
 
 
@@ -79,9 +80,7 @@ namespace Audio.ViewModels
                     audioTimer?.Change(1000, 1000);
 
                     Device.BeginInvokeOnMainThread(async () =>
-                    {
-
-
+                    { 
 
                         var audioFile = await recordingTask;
 
@@ -89,7 +88,7 @@ namespace Audio.ViewModels
                         {
                             audioTimer?.Change(Timeout.Infinite, Timeout.Infinite);
                             audioPlayer.Play(audioRecorderService.GetAudioFilePath());
-                            AudioText = "Stop";
+                            AudioText = "Record";
                             AudioTextColor = Color.Green;
                         }
                     });
