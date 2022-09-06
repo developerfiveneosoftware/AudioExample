@@ -131,6 +131,7 @@ namespace Audio.ViewModels
 
                                 byte[] buffer = headerStream.ToArray();
                                 Console.WriteLine($"audio length = {buffer.Length}");
+                                //This would send the data to signalr to be broadcast
                             }
 
                         }
